@@ -56,12 +56,25 @@ class TestBase2(TestCase):
 
     def test_encode(self):
         self.assertEqual(BaseX.encode(0, self.BASE), '0')
+        self.assertEqual(BaseX.encode(0, self.BASE, 3), '000')
+
         self.assertEqual(BaseX.encode(1, self.BASE), '1')
+        self.assertEqual(BaseX.encode(1, self.BASE, 5), '00001')
+
         self.assertEqual(BaseX.encode(2, self.BASE), '10')
+        self.assertEqual(BaseX.encode(2, self.BASE, 4), '0010')
+
         self.assertEqual(BaseX.encode(100, self.BASE), '1100100')
+        self.assertEqual(BaseX.encode(100, self.BASE, 10), '0001100100')
+
         self.assertEqual(BaseX.encode(512, self.BASE), '1000000000')
+        self.assertEqual(BaseX.encode(512, self.BASE, 5), '1000000000')
+
         self.assertEqual(BaseX.encode(1070080, self.BASE), '100000101010000000000')
+        self.assertEqual(BaseX.encode(1070080, self.BASE, 10), '100000101010000000000')
+
         self.assertEqual(BaseX.encode(9598070080, self.BASE), '1000111100000101101110110101000000')
+        self.assertEqual(BaseX.encode(9598070080, self.BASE, 8), '1000111100000101101110110101000000')
                     
     def test_decode(self):
         self.assertEqual(BaseX.decode('0', self.BASE), 0)
@@ -110,12 +123,25 @@ class TestBase62(TestCase):
 
     def test_encode(self):
         self.assertEqual(BaseX.encode(0, self.BASE), '0')
+        self.assertEqual(BaseX.encode(0, self.BASE, 5), '00000')
+
         self.assertEqual(BaseX.encode(1, self.BASE), '1')
+        self.assertEqual(BaseX.encode(1, self.BASE, 3), '001')
+        
         self.assertEqual(BaseX.encode(2, self.BASE), '2')
+        self.assertEqual(BaseX.encode(2, self.BASE, 5), '00002')
+
         self.assertEqual(BaseX.encode(100, self.BASE), '1C')
+        self.assertEqual(BaseX.encode(100, self.BASE, 4), '001C')
+
         self.assertEqual(BaseX.encode(512, self.BASE), '8g')
+        self.assertEqual(BaseX.encode(512, self.BASE, 3), '08g')
+
         self.assertEqual(BaseX.encode(1070080, self.BASE), '4unm')
+        self.assertEqual(BaseX.encode(1070080, self.BASE, 10), '0000004unm')
+
         self.assertEqual(BaseX.encode(9598070080, self.BASE), 'atywtW')
+        self.assertEqual(BaseX.encode(9598070080, self.BASE, 3), 'atywtW')
                     
     def test_decode(self):
         self.assertEqual(BaseX.decode('0', self.BASE), 0)
