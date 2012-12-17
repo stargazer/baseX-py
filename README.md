@@ -9,4 +9,6 @@ X is anything from 2 to 62.
 
 The alphabet used is ``012..789.9abc...xyzABC...XYZ``
             
+## Test suite
 
+Can be ran using ``python setup.py test``
