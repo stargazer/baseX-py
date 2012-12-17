@@ -1,6 +1,6 @@
-# BaseX-py
+# baseX-py
 
-Simple Python class, that can:
+Simple Python module, that can:
 
 *   Encode any decimal number to its Base-X representation
 *   Decode any Base-X number its decimal representation
