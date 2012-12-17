@@ -13,7 +13,7 @@ class BaseX:
     
     # Minimum length of encoded numbers. If a number has less digits than this,
     # then it is padded with 0s.
-    MIN_LEN = 3
+    MIN_LEN = 1
 
     @classmethod
     def encode(cls, num, base):
@@ -65,7 +65,7 @@ class BaseX:
 
         # If ``string`` is padded with zeros, remove them
         while 1:
-            if string.startswith('0'):
+            if string != '0' and string.startswith('0'):
                 string = string[1:]
             else:
                 break
