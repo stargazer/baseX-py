@@ -8,6 +8,7 @@ setup(
     url='http://github.com/stargazer/baseX-py',
     packages=find_packages(),
     install_requires=(),
+    test_suite='baseX.tests.test',
 )  
 
 
