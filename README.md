@@ -7,6 +7,6 @@ Simple Python class, that can:
 
     X is anything from 2 to 62.
 
-    The alphabet used is ``012...9abc...zABC...Z``
+    The alphabet used is ``012..789.9abc...xyzABC...XYZ``
             
 
