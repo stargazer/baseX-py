@@ -16,21 +16,22 @@ class BaseX:
     MIN_LEN = 1
 
     @classmethod
-    def encode(cls, num, base):
+    def encode(cls, num, base, min_len=1):
         """
         Encode a decimal number in Base-X
 
-        @param num : The number to encode
-        @param base: The base to which to convert the number
+        @param num      : The number to encode
+        @param base     : The base to which to convert the number
+        @param min_len  : The minimum length(in digits) that the encoded number should
+            have. For example, if we want that all our encoded numbers have at
+            least 5 characters, any numbers that are smaller in length, will be
+            padded with 0s in the front.
 
         @return   : Number in Base62 encoding
         @rvalue   : str
         """
         if base < 2 or base > 62:
             raise ValueError('Illegal base')            
-
-        if num == 0:
-            return cls.ALPHABET[0]
 
         arr = []
         while num:
@@ -40,8 +41,9 @@ class BaseX:
         arr.reverse()
 
         # Pad with zeros in-front if needed 
-        if len(arr) < cls.MIN_LEN:
-            rem = cls.MIN_LEN - len(arr)
+        if len(arr) < min_len:
+
+            rem = min_len - len(arr)
             for i in range(rem):
                 arr.insert(0, '0')
 
